@@ -1,1 +1,12 @@
+name: text documents by olof
 theme: jekyll-theme-minimal
+repository: https://github.com/olof/blog
+timezone: Europe/Copenhagen
+
+collections:
+  posts:
+    permalink: /posts/:category/:year/:month/:day/:title
+    output: true
+
+exclude:
+ - ".gitignore"
