@@ -1,7 +1,11 @@
 title: blog.π
+author: olof
+
 theme: minima
 repository: https://github.com/olof/blog
 timezone: Europe/Copenhagen
+
+show_excerpts: true
 
 collections:
   posts:
