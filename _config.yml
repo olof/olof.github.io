@@ -5,7 +5,7 @@ timezone: Europe/Copenhagen
 
 collections:
   posts:
-    permalink: /posts/:category/:year/:month/:day/:title
+    permalink: /posts/:year/:month/:day/:title
     output: true
 
 exclude:
