@@ -91,7 +91,7 @@ players' resolvers? That way, I mix my queries with those of all
 other users. But I would like to avoid letting the resolver
 operator know my query patterns.
 
-## DoH: confidentiality, Tor: anonymity
+### DoH: confidentiality, Tor: anonymity
 
 My idea to solve this was to proxy DoH requests over Tor. Turns
 out, Cloudflare hackers also [thought about this][cf/tor]!
