@@ -45,14 +45,14 @@ at a conceptual level: about how it gives browsers more or less
 complete control over name resolution, and means to bypass
 existing network policy and monitoring.
 
-Some of those that most loudly voice this conceptual complain are
-internet service providers (ISPs). And here's where it becomes a
-bit weird. If I'm not using my ISP's resolver, they should not
-analyze my queries and thus remain unaffected by changes like
-this. Yet, large ISPs have made a case to US congress to
-investigate this from an antitrust point of view: "we can no
-longer access data if it becomes encrypted". They most definitely
-should not care.
+We shouldn't dismiss that criticism, but some of those that most
+loudly voice this conceptual complain are internet service
+providers (ISPs). And here's where it becomes a bit weird. If I'm
+not using my ISP's resolver, they should not analyze my queries
+and thus remain unaffected by changes like this. Yet, large ISPs
+have made a case to US congress to investigate this from an
+antitrust point of view: "we can no longer access data if it
+becomes encrypted". They most definitely should not care.
 
 Personally, I have been doing local dns resolving using
 [unbound][unbound], to enable trustless DNSSEC validation (i.e. I
