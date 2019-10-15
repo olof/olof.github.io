@@ -1,26 +1,24 @@
 ---
 layout: post
 title: "DNS-over-HTTPS over Tor: Part 1: Background"
-categories: dns, privacy
+categories: dns, privacy, tor
 ---
-**If you are reading this, you are cordially invited to review
-this draft.**
-
-## DNS confidentiality and DNS-over-HTTPS
-
 This article series describes considerations for using
 DNS-over-HTTPS (DoH, [RFC 8484][rfc/8484]) and to improve privacy
-properties by using the [Tor anonymizing proxy network][tor]. DoH
-is literally just what it sounds like: send a binary DNS packet
-as the payload of an HTTPS request. The purpose of this is to
-make use of the confidentiality provided by the HTTPS encryption.
-It will also make it harder to identify it as DNS traffic, and
-thereby block it (in theory it should just look like regular
-HTTPS traffic). This protects against passive eavesdropping,
-where somebody (like your ISP) can inspect your DNS queries. My
-idea is to further increase the privacy properties of this by
-hiding the source IP address (i.e. requestor identity) from the
-resolver operator.
+properties by using the [Tor anonymizing proxy network][tor].
+
+### DNS confidentiality and DNS-over-HTTPS
+
+DoH is literally just what it sounds like: send a binary DNS
+packet as the payload of an HTTPS request. The purpose of this is
+to make use of the confidentiality provided by the HTTPS
+encryption. It will also make it harder to identify it as DNS
+traffic, and thereby block it (in theory it should just look like
+regular HTTPS traffic). This protects against passive
+eavesdropping, where somebody (like your ISP) can inspect your
+DNS queries. My idea is to further increase the privacy
+properties of this by hiding the source IP address (i.e.
+requestor identity) from the resolver operator.
 
 The root problem is that when you do DNS resolution, the queries
 are sent in the open; they can be intercepted by your ISP, but
@@ -93,6 +91,8 @@ players' resolvers? That way, I mix my queries with those of all
 other users. But I would like to avoid letting the resolver
 operator know my query patterns.
 
+## DoH: confidentiality, Tor: anonymity
+
 My idea to solve this was to proxy DoH requests over Tor. Turns
 out, Cloudflare hackers also [thought about this][cf/tor]!
 
@@ -105,13 +105,13 @@ out, Cloudflare hackers also [thought about this][cf/tor]!
 
 ("the exceptionally privacy-conscious"? Let's make this the
 norm!) But sadly this Cloudflare Onion service is no longer
-online. Had this been online, I would likely not have had to deal
-with this mess. :)
+online. Had this been online, things would have been a bit
+simpler. But I still want this anonymity from the DNS provider,
+so what I will do is somehow proxy the DoH traffic over Tor
+myself.
 
-This summarize the protocol, what the purpose of it is and what
-my specific goals are. In the upcoming articles in the series, we
-will explore various methods (working as well as non-working) for
-tunneling DoH requests over Tor.
+In the next part of this series, I'll discuss methods of doing so
+and reason about their relative advantages and disadvantages.
 
 [rfc/8484]: https://tools.ietf.org/rfc/rfc8484.txt
 [tor]: https://www.torproject.org/
