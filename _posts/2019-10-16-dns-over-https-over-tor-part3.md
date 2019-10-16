@@ -47,16 +47,18 @@ encrypted. But we do control the HTTP client, k
 
 ### Implementation
 
-A first go at it: Using AnyEvent and AnyEvent::Handle::UDP, we
-set up a resolver that accepts UDP datagrams. On each incoming
-packet, we forward the payload (a regular DNS packet) to the HTTP
-endpoint listed in `$uri`, via the proxy specified in `$proxy`.
-The payload of the HTTP response (again, a normal DNS packet) is
-sent back to the original DNS querier.
+A first go at it: Using [AnyEvent][cpan/AnyEvent] and
+[AnyEvent::Handle::UDP][cpan/AnyEvent::Handle::UDP], we set up a
+resolver that accepts UDP datagrams. On each incoming packet, we
+forward the payload (a regular DNS packet) to the HTTP endpoint
+listed in `$uri`, via the proxy specified in `$proxy`.  The
+payload of the HTTP response (again, a normal DNS packet) is sent
+back to the original DNS querier.
 
-Since AnyEvent::HTTP doesn't support socks proxies, we use the
-http proxy provided by privoxy. (They do document a way to hack
-in socks support, but we'll go with privoxy for now.)
+We use [AnyEvent::HTTP][cpan/AnyEvent::HTTP] as HTTP client, but
+since it doesn't support socks proxies, we use the http proxy
+provided by privoxy.  (They do document a way to hack in socks
+support, but we'll go with privoxy for now.)
 
 ```perl
 use strict;
@@ -134,6 +136,20 @@ name first, and to contact the resolver you would have to resolve
 the name. Firefox solved this by having a "bootstrap address",
 where you can define a name but still use a hardcoded IP address.
 
+#### Tweaking AnyEvent::HTTP
+
+Some notes about AnyEvent::HTTP: By default, it won't validate
+tls certificates. Passing the `tls_ctx => 'high'` parameter
+enables this. To have to opt-in for this is not really ideal for
+an HTTPS client, but now we know about it and we have to make
+sure to always enable it.
+
+AnyEvent::HTTP doesn't do persistent connections by default
+either. Not as big deal to have to opt-in for: just add
+`persistent => 1`. There are some tweakables related to this,
+e.g. `$AnyEvent::HTTP::PERSISTENT_TIMEOUT`. I haven't optimized
+this, I just set to some arbitrary values for now.
+
 ### Unbound configuration
 
 You may have noticed that the above script listens on 5354/udp,
@@ -195,7 +211,8 @@ issues.
 
 The next article in this series will probably be published in
 some weeks. Until then, I'll try to make some performance
-comparisons, tidy up the software packaging and make sure to
+comparisons (how much does Tor or HTTP client tweakables affect
+performance?), tidy up the software packaging and make sure to
 tweak necessary unbound configuration. Stay tuned.
 
 And if you can't wait, try it out! Copy the code and run it; but
@@ -205,3 +222,6 @@ anyways somehow if you find problems!
 
 [self/doh-part2]: https://blog.3.14159.se/posts/2019/10/15/dns-over-https-over-tor-part2
 [self/background]: https://blog.3.14159.se/posts/2019/10/15/dns-over-https-over-tor-part1
+[cpan/AnyEvent]: https://metacpan.org/pod/AnyEvent
+[cpan/AnyEvent::Handle::UDP]: https://metacpan.org/pod/AnyEvent::Handle::UDP
+[cpan/AnyEvent::HTTP]: https://metacpan.org/pod/AnyEvent::HTTP
