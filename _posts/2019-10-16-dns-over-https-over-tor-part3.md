@@ -84,6 +84,7 @@ my $named = AnyEvent::Handle::UDP->new(
                 'Content-Length' => length($data),
             },
             tls_ctx => 'high',
+            persistent => 1,
             sub {
                 # Called when HTTP query completes, send back response
                 # payload to our client
