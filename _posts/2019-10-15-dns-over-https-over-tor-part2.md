@@ -17,9 +17,11 @@ My first thought was to run a local reverse proxy; I'd configure
 Firefox to use http://localhost/dns-query as my DoH endpoint and
 it will then proxy the requests through Tor to a public DoH
 resolver. This was a dead end: Firefox requires DoH hosts to be
-HTTPS. I can't get a valid certificate for localhost. I also
-considered doing this with a [proxy auto configuration][mdn/pac]
-(PAC) script, but I couldn't make Firefox use it.
+HTTPS (and in fact, this reuqirement comes directly from [RFC
+8484, Section 5][rfc/8484/5]). I can't get a valid certificate
+for localhost.  I also considered doing this with a [proxy auto
+configuration][mdn/pac] (PAC) script, but I couldn't make Firefox
+use it.
 
 The only way I got Firefox to accept my custom DoH server was to
 set it up on a publicly available host, with a domain name and a
@@ -82,3 +84,4 @@ in the next couple of posts.
 
 [mdn/pac]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Proxy_servers_and_tunneling/Proxy_Auto-Configuration_(PAC)_file
 [self/background]: https://blog.3.14159.se/posts/2019/10/15/dns-over-https-over-tor-part1
+[rfc/8484/5]: https://tools.ietf.org/html/rfc8484#section-5
