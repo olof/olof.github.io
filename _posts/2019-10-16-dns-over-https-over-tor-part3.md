@@ -55,7 +55,8 @@ The payload of the HTTP response (again, a normal DNS packet) is
 sent back to the original DNS querier.
 
 Since AnyEvent::HTTP doesn't support socks proxies, we use the
-http proxy provided by privoxy.
+http proxy provided by privoxy. (They do document a way to hack
+in socks support, but we'll go with privoxy for now.)
 
 ```perl
 use strict;
