@@ -85,3 +85,5 @@ in the next couple of posts.
 [mdn/pac]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Proxy_servers_and_tunneling/Proxy_Auto-Configuration_(PAC)_file
 [self/background]: https://blog.3.14159.se/posts/2019/10/15/dns-over-https-over-tor-part1
 [rfc/8484/5]: https://tools.ietf.org/html/rfc8484#section-5
+[bagder/trrprefs]: https://bagder.github.io/TRRprefs/
+[unbound/doh-bug]: https://web.archive.org/web/20190625135131/https://www.nlnetlabs.nl/bugs-script/show_bug.cgi?id=1200
