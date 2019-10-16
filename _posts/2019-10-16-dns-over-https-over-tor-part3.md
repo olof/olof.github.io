@@ -82,6 +82,7 @@ my $named = AnyEvent::Handle::UDP->new(
                 'Content-Type' => 'application/dns-message',
                 'Content-Length' => length($data),
             },
+            tls_ctx => 'high',
             sub {
                 # Called when HTTP query completes, send back response
                 # payload to our client
