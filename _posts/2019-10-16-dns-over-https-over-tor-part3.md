@@ -13,7 +13,7 @@ In the [last post][self/doh-part-2], I described the chain I
 wanted:
 
 ```
-Firefox -(dns)-> unbound -(dns)-> proxy -(doh)-> Doh resolver
+Firefox -(dns)-> unbound -(dns)-> proxy -(doh proxied over tor)-> Doh resolver
 ```
 
 I will focus on the proxy step in this article. What would this

@@ -72,7 +72,7 @@ so were we to use it, we would have to patch it.
 So, given this, I think the setup I would like to see is:
 
 ```
-Firefox -(dns)-> unbound -(dns)-> proxy -(doh)-> Doh resolver
+Firefox -(dns)-> unbound -(dns)-> proxy -(doh proxied over tor)-> Doh resolver
 ```
 
 The proxy could be a patched doh-stub. I tried making it work
