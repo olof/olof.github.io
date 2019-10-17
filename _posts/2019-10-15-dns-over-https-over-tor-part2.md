@@ -20,10 +20,15 @@ Firefox to use http://localhost/dns-query as my DoH endpoint and
 it will then proxy the requests through Tor to a public DoH
 resolver. This was a dead end: Firefox requires DoH hosts to be
 HTTPS (and in fact, this reuqirement comes directly from [RFC
-8484, Section 5][rfc/8484/5]). I can't get a valid certificate
-for localhost.  I also considered doing this with a [proxy auto
-configuration][mdn/pac] (PAC) script, but I couldn't make Firefox
-use it.
+8484, Section 5][rfc/8484/5]).
+
+I can't get a valid certificate for localhost. Maybe I could have
+gotten one for some other public domain name, that pointed to
+127.0.0.1, but not only is this [not recommended][le/localhost],
+it means that everybody who wants to set up something like this
+would need their own domain name. I also considered doing this
+with a [proxy auto configuration][mdn/pac] (PAC) script, but I
+couldn't make Firefox use it.
 
 The only way I got Firefox to accept my custom DoH server was to
 set it up on a publicly available host, with a domain name and a
@@ -119,3 +124,4 @@ Other posts in this series:
 [py/doh-proxy]: https://facebookexperimental.github.io/doh-proxy/
 [py/aiohttp]: https://aiohttp.readthedocs.io/en/stable/
 [gh/piskyscan/dot-tor]: https://github.com/piskyscan/dns_over_tls_over_tor
+[le/localhost]: https://letsencrypt.org/docs/certificates-for-localhost/
