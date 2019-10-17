@@ -50,9 +50,10 @@ loudly voice this conceptual complain are internet service
 providers (ISPs). And here's where it becomes a bit weird. If I'm
 not using my ISP's resolver, they should not analyze my queries
 and thus remain unaffected by changes like this. Yet, large ISPs
-have made a case to US congress to investigate this from an
-antitrust point of view: "we can no longer access data if it
-becomes encrypted". They most definitely should not care.
+have [made a case to US congress][ncta/congress-letter] to
+investigate this from an antitrust point of view: "we can no
+longer access data if it becomes encrypted". They most definitely
+should not care.
 
 Personally, I have been doing local dns resolving using
 [unbound][unbound], to enable trustless DNSSEC validation (i.e. I
@@ -124,3 +125,4 @@ and reason about their relative advantages and disadvantages.
 [cf/tor]: https://blog.cloudflare.com/welcome-hidden-resolver/
 [self/doh-part-2]: https://blog.3.14159.se/posts/2019/10/15/dns-over-https-over-tor-part2
 [self/doh-part-3]: https://blog.3.14159.se/posts/2019/10/16/dns-over-https-over-tor-part3
+[ncta/congress-letter]: https://www.ncta.com/sites/default/files/2019-09/Final%20DOH%20LETTER%209-19-19.pdf
