@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "DNS-over-HTTPS over Tor: Part 3: Implementation"
+title: "DoH over Tor: Part 3: Implementation"
 categories: dns, privacy
 ---
 This article will discuss a simple implementation of DoH+Tor stub

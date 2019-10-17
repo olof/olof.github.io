@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "DNS-over-HTTPS over Tor: Part 1: Background"
+title: "DoH over Tor: Part 1: Background"
 categories: dns, privacy, tor
 ---
 This article series describes considerations for using

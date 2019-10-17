@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "DNS-over-HTTPS over Tor: Part 2: Considerations"
+title: "DoH over Tor: Part 2: Considerations"
 categories: dns, privacy
 ---
 The privacy properties of DNS-over-HTTPS are nice. I want to make
