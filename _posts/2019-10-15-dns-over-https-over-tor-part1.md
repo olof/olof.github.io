@@ -97,8 +97,9 @@ operator know my query patterns.
 
 ### DoH: confidentiality, Tor: anonymity
 
-My idea to solve this was to proxy DoH requests over Tor. Turns
-out, Cloudflare hackers also [thought about this][cf/tor]!
+My idea to solve this was to proxy DoH requests over [Tor][tor], the
+anonymizing proxy network. Turns out, Cloudflare hackers also [thought
+about this][cf/tor]!
 
 > the exceptionally privacy-conscious folks might not want to
 > reveal their IP address to the resolver at all, and we respect
@@ -114,8 +115,9 @@ simpler. But I still want this anonymity from the DNS provider,
 so what I will do is somehow proxy the DoH traffic over Tor
 myself.
 
-In the next part of this series, I'll discuss methods of doing so
-and reason about their relative advantages and disadvantages.
+In the next part of this series, I'll discuss methods of doing so,
+discuss why some of them won't work, and stumble my way towards
+something that works.
 
 * [Part 2: Considerations][self/doh-part-2]
 * [Part 3: Implementation][self/doh-part-3]
