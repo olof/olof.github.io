@@ -14,3 +14,6 @@ collections:
 
 exclude:
  - ".gitignore"
+
+plugins:
+ - jekyll-feed
