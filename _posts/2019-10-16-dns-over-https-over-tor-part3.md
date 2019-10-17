@@ -43,19 +43,28 @@ forward-socks5t   /               127.0.0.1:9050    .
 ```
 
 Normally, you can make privoxy work for you in more ways, like
-stripping privacy leakages, but since we'll only use it to proxy
-HTTPS traffic privoxy won't be able to very much as it's all
-encrypted. But we do control the HTTP client, k
+stripping privacy leakages, but since we'll only use it to proxy HTTPS
+traffic privoxy won't be able to very much as it's all encrypted. But
+we do control the HTTP client, so we can take efforts to avoid leaking
+privacy information that is normally associated with HTTP requests,
+especially browser generated requests (no cookie jar, no HTTP
+user-agent string).
+
+Ironically, stripping away identifiable information from an HTTP
+request can make the request more fingerprintable (e.g. not as many
+requests lack a User-Agent string and come from a Tor endpoint). I
+hope I can make the DoH over Tor proxy work well enough to be widely
+usable *or* through these blog posts inspire somebody else to do so.
 
 ### Implementation
 
 A first go at it: Using [AnyEvent][cpan/AnyEvent] and
 [AnyEvent::Handle::UDP][cpan/AnyEvent::Handle::UDP], we set up a
 resolver that accepts UDP datagrams. On each incoming packet, we
-forward the payload (a regular DNS packet) to the HTTP endpoint
-listed in `$uri`, via the proxy specified in `$proxy`.  The
-payload of the HTTP response (again, a normal DNS packet) is sent
-back to the original DNS querier.
+forward the payload (a regular DNS packet) to the HTTP endpoint listed
+in `$uri`, via the proxy specified in `$proxy`.  The payload of the
+HTTP response (again, just a normal DNS packet) is sent back to the
+original DNS querier.
 
 We use [AnyEvent::HTTP][cpan/AnyEvent::HTTP] as HTTP client, but
 since it doesn't support socks proxies, we use the http proxy
