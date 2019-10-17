@@ -76,11 +76,12 @@ Firefox -(dns)-> unbound -(dns)-> proxy -(doh proxied over tor)-> Doh resolver
 ```
 
 The proxy could be a patched doh-stub. I tried making it work
-with requests (it has support for socks proxying), but that
-caused unacceptable performance loss and instability as requests
-blocks the asyncio event loop waiting for a response. Instead, I
-implement my own doh-stub like tool. I'll go into details on this
-in the next couple of posts.
+with the [Python requests library][py/requests] (it has support
+for socks proxying), but that caused unacceptable performance
+loss and instability as requests blocks the [asyncio event
+loop][py/asyncio] waiting for a response.  Instead, I implement
+my own doh-stub like tool. I'll go into details on this in the
+next couple of posts.
 
 Other posts in this series:
 
@@ -93,3 +94,5 @@ Other posts in this series:
 [rfc/8484/5]: https://tools.ietf.org/html/rfc8484#section-5
 [bagder/trrprefs]: https://bagder.github.io/TRRprefs/
 [unbound/doh-bug]: https://web.archive.org/web/20190625135131/https://www.nlnetlabs.nl/bugs-script/show_bug.cgi?id=1200
+[py/requests]: https://3.python-requests.org/
+[py/asyncio]: https://docs.python.org/3/library/asyncio.html
