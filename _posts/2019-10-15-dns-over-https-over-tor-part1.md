@@ -113,9 +113,14 @@ myself.
 In the next part of this series, I'll discuss methods of doing so
 and reason about their relative advantages and disadvantages.
 
+* [Part 2: Considerations][self/doh-part-2]
+* [Part 3: Implementation][self/doh-part-3]
+
 [rfc/8484]: https://tools.ietf.org/rfc/rfc8484.txt
 [tor]: https://www.torproject.org/
 [pdns/doh-blog]: https://blog.powerdns.com/2019/09/25/centralised-doh-is-bad-for-privacy-in-2019-and-beyond/
 [unbound]: https://nlnetlabs.nl/projects/unbound/about/
 [gh/curl/dohlist]: https://github.com/curl/curl/wiki/DNS-over-HTTPS#publicly-available-servers
 [cf/tor]: https://blog.cloudflare.com/welcome-hidden-resolver/
+[self/doh-part-2]: https://blog.3.14159.se/posts/2019/10/15/dns-over-https-over-tor-part2
+[self/doh-part-3]: https://blog.3.14159.se/posts/2019/10/16/dns-over-https-over-tor-part3

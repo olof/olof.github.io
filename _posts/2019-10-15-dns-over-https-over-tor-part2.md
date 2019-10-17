@@ -5,7 +5,7 @@ categories: dns, privacy
 ---
 The privacy properties of DNS-over-HTTPS are nice. I want to make
 use of them! As I discussed in the [DoH
-background][self/background] article, Cloudflare did provide
+background][self/doh-part-1] article, Cloudflare did provide
 their DoH over Tor, but not anymore.
 
 The DoH hype is focused on the web browsers; both Mozilla and
@@ -82,8 +82,12 @@ blocks the asyncio event loop waiting for a response. Instead, I
 implement my own doh-stub like tool. I'll go into details on this
 in the next couple of posts.
 
+* [Part 1: Background][self/doh-part-1]
+* [Part 3: Implementation][self/doh-part-3]
+
 [mdn/pac]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Proxy_servers_and_tunneling/Proxy_Auto-Configuration_(PAC)_file
-[self/background]: https://blog.3.14159.se/posts/2019/10/15/dns-over-https-over-tor-part1
+[self/doh-part-1]: https://blog.3.14159.se/posts/2019/10/15/dns-over-https-over-tor-part1
+[self/doh-part-3]: https://blog.3.14159.se/posts/2019/10/16/dns-over-https-over-tor-part3
 [rfc/8484/5]: https://tools.ietf.org/html/rfc8484#section-5
 [bagder/trrprefs]: https://bagder.github.io/TRRprefs/
 [unbound/doh-bug]: https://web.archive.org/web/20190625135131/https://www.nlnetlabs.nl/bugs-script/show_bug.cgi?id=1200

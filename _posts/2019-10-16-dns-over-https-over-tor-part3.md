@@ -9,7 +9,7 @@ forward them, via Tor, to a public DoH resolver. This way, we get
 the privacy properties of HTTPS for all DNS resolution on the
 system.
 
-In the [last post][self/doh-part2], I described the chain I
+In the [last post][self/doh-part-2], I described the chain I
 wanted:
 
 ```
@@ -220,8 +220,11 @@ on the other hand, it's some random code on some random blog.
 You can't really assume it's maintained. But please contact me
 anyways somehow if you find problems!
 
-[self/doh-part2]: https://blog.3.14159.se/posts/2019/10/15/dns-over-https-over-tor-part2
-[self/background]: https://blog.3.14159.se/posts/2019/10/15/dns-over-https-over-tor-part1
+* [Part 1: Background][self/doh-part-1]
+* [Part 2: Background][self/doh-part-2]
+
+[self/doh-part-1]: https://blog.3.14159.se/posts/2019/10/15/dns-over-https-over-tor-part1
+[self/doh-part-2]: https://blog.3.14159.se/posts/2019/10/15/dns-over-https-over-tor-part2
 [cpan/AnyEvent]: https://metacpan.org/pod/AnyEvent
 [cpan/AnyEvent::Handle::UDP]: https://metacpan.org/pod/AnyEvent::Handle::UDP
 [cpan/AnyEvent::HTTP]: https://metacpan.org/pod/AnyEvent::HTTP
