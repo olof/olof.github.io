@@ -73,26 +73,28 @@ DoT over Tor, please take a look if you're interested.
 
 ### Implementation, a first look
 
-I'm not an experienced C developer, so adding support for DoH
-*in* unbound seems harder than I could stomach right now (but it
-would probably be the [Right Place(tm)][unbound/doh-bug]!). I
-also looked at PowerDNS Recursor with its Lua scripting ability,
-but couldn't quite get the behavior I wanted. Further research
-pointed me to the [doh-proxy python project][py/doh-proxy] from
-Facebook. It includes software for running your DoH server, but
-it also includes `doh-stub` that acts like a regular DNS resolver
-that forwards requests to a DoH server over HTTPS.
+I'm not an experienced C developer, so adding support for DoH *in*
+unbound seems harder than I could stomach right now (but it would
+probably be the [Right Place(tm)][unbound/doh-bug]!). I also looked at
+PowerDNS Recursor with its Lua scripting ability, but couldn't quite
+get the behavior I wanted.
 
-This is exactly the kind of building block I need; I can
+Further research pointed me to the [doh-proxy python
+project][py/doh-proxy] from Facebook. It includes software for running
+your own DoH server, but it also includes `doh-stub` that acts like a
+regular DNS resolver that forwards requests to a DoH server over
+HTTPS. This is exactly the kind of building block I need; I can
 configure unbound to forward queries to this stub resolver using
-`forward-zone` statements. The doh-proxy project is documented as
-experimental and it unfortunately depends on an http2 python
-module that isn't well maintained (no python3.7 support in a
-published release) and it doesn't support fallback to http/1.1.
-It doesn't support the use of proxies either, so were we to use
-it, we would have to patch it.
+`forward-zone` statements.
 
-So, given this, I think the setup I would like to see is:
+The doh-proxy project is documented as experimental and it
+unfortunately depends on an http2 python module that isn't well
+maintained (currently no python3.7 support in a published release) and
+it doesn't support fallback to http/1.1. doh-stub doesn't support the
+use of proxies either, so were we to use it, we would have to patch
+it.
+
+Even so, it allowed me to prototype the communication chain I wanted:
 
 ```
 Firefox -(dns)-> unbound -(dns)-> proxy -(doh proxied over tor)-> Doh resolver
