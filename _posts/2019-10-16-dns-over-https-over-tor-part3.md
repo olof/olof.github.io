@@ -184,11 +184,21 @@ forward-zone:
     forward-addr: ::1@5354
 ```
 
+`forward-zone` configures unbound to forward all our queries to
+the recursive resolver specified in `forward-addr`. We do it for
+all names (anything under `.`).
+
+`do-not-query-localhost` bypasses some security(?) thing in
+unbound since we run our forwarder on localhost. Not sure exactly
+what the implications are, but it's necessary for unbound to pass
+on queries.
+
 Because resolving names over Tor is slower (sometimes much
-slower), we can tweak unbound to respond with expired names,
-while still updating the cache once the DoH response has been
-received. This may have some terrible consequence that I haven't
-thought about. I'm still trying it out :).
+slower), we can tweak unbound to respond with expired names (i.e
+where we got data in the cache, but the TTL has passed), while
+still updating the cache once the DoH response has been received.
+This may have some terrible consequence that I haven't thought
+about. I'm still trying it out :).
 
 ```
 server:
