@@ -8,6 +8,8 @@ DNS-over-HTTPS (DoH, [RFC 8484][rfc/8484]) for confidentiality of
 your DNS usage, and to further improve privacy properties by
 using the [Tor anonymizing proxy network][tor].
 
+**THIS IS A DRAFT, REVIEW COMMENTS WELCOME**
+
 ### DNS confidentiality and DNS-over-HTTPS
 
 DoH is literally just what it sounds like: send a binary DNS

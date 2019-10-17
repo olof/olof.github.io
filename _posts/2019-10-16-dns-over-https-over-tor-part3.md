@@ -9,6 +9,8 @@ forward them, via Tor, to a public DoH resolver. This way, we get
 the privacy properties of HTTPS for all DNS resolution on the
 system.
 
+**THIS IS A DRAFT, REVIEW COMMENTS WELCOME**
+
 In the [last post][self/doh-part-2], I described the chain I
 wanted:
 

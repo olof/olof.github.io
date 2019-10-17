@@ -8,6 +8,8 @@ use of them! As I discussed in the [DoH
 background][self/doh-part-1] article, Cloudflare did provide
 their DoH over Tor, but not anymore.
 
+**THIS IS A DRAFT, REVIEW COMMENTS WELCOME**
+
 The DoH hype is focused on the web browsers; both Mozilla and
 Google have come a long way in enabling it by default for Firefox
 and Chrome. I've looked at how Firefox deals with DoH, and what
