@@ -51,6 +51,21 @@ is in the system resolver, or as close to it as possible. I run a
 local unbound for name resolution, so using that as the
 implementation point makes sense for me.
 
+### DNS-over-TLS
+
+I also want to mention DNS-over-TLS (DoT, [RFC 7858][rfc/7858], a
+more lightweight protocol modification. It makes sense, but the
+reason I went forward with DoH is that it also solves the problem
+of "masking" the fact that it's a DNS query (to some extent). But
+this is a weak argument, because it's likely that DoH traffic is
+also identifiable even if encrypted, at least if you use one of
+the popular public DoH resolvers.
+
+There [has been prior work][gh/piskyscan/dot-tor] on tunneling
+DoT over Tor, please take a look if you're interested.
+
+### Implementation, a first look
+
 I'm not an experienced C developer, so adding support for DoH
 *in* unbound seems harder than I could stomach right now (but it
 would probably be the [Right Place(tm)][unbound/doh-bug]!). I
@@ -92,6 +107,7 @@ Other posts in this series:
 [self/doh-part-1]: https://blog.3.14159.se/posts/2019/10/15/dns-over-https-over-tor-part1
 [self/doh-part-3]: https://blog.3.14159.se/posts/2019/10/16/dns-over-https-over-tor-part3
 [rfc/8484/5]: https://tools.ietf.org/html/rfc8484#section-5
+[rfc/7858]: https://tools.ietf.org/html/rfc7858
 [bagder/trrprefs]: https://bagder.github.io/TRRprefs/
 [unbound/doh-bug]: https://web.archive.org/web/20190625135131/https://www.nlnetlabs.nl/bugs-script/show_bug.cgi?id=1200
 [py/requests]: https://3.python-requests.org/
