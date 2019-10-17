@@ -71,18 +71,19 @@ I'm not an experienced C developer, so adding support for DoH
 would probably be the [Right Place(tm)][unbound/doh-bug]!). I
 also looked at PowerDNS Recursor with its Lua scripting ability,
 but couldn't quite get the behavior I wanted. Further research
-pointed me to the doh-proxy python project from Facebook. It
-includes software for running your DoH server, but it also
-includes `doh-stub` that acts like a regular DNS resolver that
-forwards requests to a DoH server over HTTPS.
+pointed me to the [doh-proxy python project][py/doh-proxy] from
+Facebook. It includes software for running your DoH server, but
+it also includes `doh-stub` that acts like a regular DNS resolver
+that forwards requests to a DoH server over HTTPS.
 
 This is exactly the kind of building block I need; I can
 configure unbound to forward queries to this stub resolver using
-`forward-zone` statements. Unfortunately, the doh-proxy project
-is documented as experimental. It depends on an http2 python
+`forward-zone` statements. The doh-proxy project is documented as
+experimental and it unfortunately depends on an http2 python
 module that isn't well maintained (no python3.7 support in a
-published release). It doesn't support the use of proxies either,
-so were we to use it, we would have to patch it.
+published release) and it doesn't support fallback to http/1.1.
+It doesn't support the use of proxies either, so were we to use
+it, we would have to patch it.
 
 So, given this, I think the setup I would like to see is:
 
@@ -94,9 +95,10 @@ The proxy could be a patched doh-stub. I tried making it work
 with the [Python requests library][py/requests] (it has support
 for socks proxying), but that caused unacceptable performance
 loss and instability as requests blocks the [asyncio event
-loop][py/asyncio] waiting for a response.  Instead, I implement
-my own doh-stub like tool. I'll go into details on this in the
-next couple of posts.
+loop][py/asyncio] waiting for a response. I could have patched it
+to use the more mature [aiohttp][py/aiohttp] python library, but
+instead, I implement my own doh-stub like tool. I'll go into
+details on this in the next couple of posts.
 
 Other posts in this series:
 
@@ -112,3 +114,6 @@ Other posts in this series:
 [unbound/doh-bug]: https://web.archive.org/web/20190625135131/https://www.nlnetlabs.nl/bugs-script/show_bug.cgi?id=1200
 [py/requests]: https://3.python-requests.org/
 [py/asyncio]: https://docs.python.org/3/library/asyncio.html
+[py/doh-proxy]: https://facebookexperimental.github.io/doh-proxy/
+[py/aiohttp]: https://aiohttp.readthedocs.io/en/stable/
+[gh/piskyscan/dot-tor]: https://github.com/piskyscan/dns_over_tls_over_tor
