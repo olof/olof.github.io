@@ -82,6 +82,8 @@ blocks the asyncio event loop waiting for a response. Instead, I
 implement my own doh-stub like tool. I'll go into details on this
 in the next couple of posts.
 
+Other posts in this series:
+
 * [Part 1: Background][self/doh-part-1]
 * [Part 3: Implementation][self/doh-part-3]
 

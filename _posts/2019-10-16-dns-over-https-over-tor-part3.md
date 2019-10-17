@@ -220,8 +220,10 @@ on the other hand, it's some random code on some random blog.
 You can't really assume it's maintained. But please contact me
 anyways somehow if you find problems!
 
+Other posts in this series:
+
 * [Part 1: Background][self/doh-part-1]
-* [Part 2: Background][self/doh-part-2]
+* [Part 2: Considerations][self/doh-part-2]
 
 [self/doh-part-1]: https://blog.3.14159.se/posts/2019/10/15/dns-over-https-over-tor-part1
 [self/doh-part-2]: https://blog.3.14159.se/posts/2019/10/15/dns-over-https-over-tor-part2
