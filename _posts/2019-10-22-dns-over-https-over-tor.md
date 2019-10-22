@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "DoH over Tor: Part 1: Background"
-categories: dns, privacy, tor
+title: "DoH over Tor for anonymous, confidential DNS resolution"
+categories: dns, privacy, tor, perl
 ---
 This article series describes considerations for using
 DNS-over-HTTPS (DoH, [RFC 8484][rfc/8484]) for confidentiality of
