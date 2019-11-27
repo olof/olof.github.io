@@ -4,7 +4,7 @@ title: "DoH over Tor for anonymous, confidential DNS resolution"
 categories: dns, privacy, tor, perl, dohot, dohotcd, doh
 ---
 There's ongoing work on enabling DNS tunneling over HTTPS ([RFC
-8484][rfc/8484, DNS-over-HTTPS (DoH)]) for the purpose of getting
+8484][rfc/8484], DNS-over-HTTPS (DoH)) for the purpose of getting
 rid of passive observers seeing your query patterns by encrypting
 the queries. My opinion: the network operator does not have a
 "right" to see my data, regardless of protocol. I will always
