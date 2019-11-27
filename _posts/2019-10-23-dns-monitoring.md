@@ -145,13 +145,10 @@ $ packetq -s 'select * from dns' /var/lib/dns-monitor/lo.20191023_1127.pcap
 ```
 
 It can also export to CSV or XML, as well as expose a simple web
-interface via its builtin web server. We can use the capture
-files and packetq to generate reports like most queried domains.
-
-By having these pcap files around, we can later write tools to
-create reports. For instance, the following expression will
-generate a list of most popular domains by number of replies
-(based on an expression listed in the [PacketQ
+interface via its builtin web server. By having these pcap files
+around, we can later create reports. For instance, the following
+expression will generate a list of most popular domains by number
+of replies (based on an expression listed in the [PacketQ
 FAQ][packetq/faq]).
 
 ```
